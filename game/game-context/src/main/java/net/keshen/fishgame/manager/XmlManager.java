@@ -1,4 +1,4 @@
-package net.keshen.manager;
+package net.keshen.fishgame.manager;
 
 import java.util.HashMap;
 import java.util.Map;
