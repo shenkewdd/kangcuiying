@@ -1,6 +1,6 @@
 package net.keshen.base.graphics;
 
-import net.keshen.base.model.interfaces.OnClickListener;
+import net.keshen.base.OnClickListener;
 
 /**
  * 按钮接口

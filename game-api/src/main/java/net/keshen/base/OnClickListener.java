@@ -1,4 +1,4 @@
-package net.keshen.base.model.interfaces;
+package net.keshen.base;
 /**
  * 点击事件监听接口
  * @author shenke

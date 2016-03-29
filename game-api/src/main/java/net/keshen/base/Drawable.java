@@ -1,4 +1,4 @@
-package net.keshen.base.model.interfaces;
+package net.keshen.base;
 
 import net.keshen.base.graphics.Canvas;
 import net.keshen.base.graphics.Matrix;

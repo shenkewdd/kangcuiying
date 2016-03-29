@@ -2,11 +2,11 @@ package net.keshen.base.adapter;
 
 import java.io.Serializable;
 
+import net.keshen.base.Drawable;
 import net.keshen.base.basecomponet.JMatrix;
 import net.keshen.base.graphics.Canvas;
 import net.keshen.base.graphics.Matrix;
 import net.keshen.base.graphics.Paint;
-import net.keshen.base.model.interfaces.Drawable;
 
 /**
  * @author shenke
@@ -27,19 +27,16 @@ public abstract class DrawableAdapter implements Drawable,Serializable{
 		return matrix;
 	}
 
-//	@Override
-//	public void onDraw(Canvas canvas, Paint paint) {
-//		canvas.draw(this.getCurrentPic(), this.getMatrix(), paint);
-//	}
-//
-//	@Override
-//	public void setDrawableName(String name) {
-//		this.name = name;
-//	}
-//
-//	@Override
-//	public String getDrawableName() {
-//		return this.name;
-//	}
+	public void onDraw(Canvas canvas, Paint paint) {
+		canvas.draw(this.getCurrentPic(), this.getMatrix(), paint);
+	}
+
+	public void setDrawableName(String name) {
+		this.name = name;
+	}
+
+	public String getDrawableName() {
+		return this.name;
+	}
 	
 }

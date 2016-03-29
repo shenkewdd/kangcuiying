@@ -6,6 +6,7 @@
     <groupId>game</groupId>
     <artifactId>game</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../game/pom.xml</relativePath>
   </parent>
   <groupId>game-api</groupId>
   <artifactId>game-api</artifactId>

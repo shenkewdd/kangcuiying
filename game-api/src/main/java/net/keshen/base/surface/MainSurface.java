@@ -14,13 +14,13 @@ import java.util.Map;
 
 import javax.swing.JPanel;
 
+import net.keshen.base.Drawable;
 import net.keshen.base.basecomponet.GameConstant;
 import net.keshen.base.basecomponet.JMatrix;
 import net.keshen.base.graphics.Canvas;
 import net.keshen.base.graphics.Matrix;
 import net.keshen.base.graphics.Paint;
 import net.keshen.base.model.Bitmap;
-import net.keshen.base.model.interfaces.Drawable;
 import net.keshen.base.surface.MainSurface.JCanvas.JPaint;
 import net.keshen.logger.Logger;
 import net.keshen.logger.LoggerManager;
@@ -52,9 +52,9 @@ public class MainSurface extends JPanel{
 	
 	public static final int CHANGE_SURFACE_UPDATE = 2;
 	
-	private Map<Integer,List<Drawable>> picLayer = new HashMap<>(); 
-	private Map<Integer,List<Drawable>> addLayer = new HashMap<>();
-	private Map<Integer,List<Drawable>> removeLayer = new HashMap<>();
+	private Map<Integer,List<Drawable>> picLayer = new HashMap<Integer, List<Drawable>>(); 
+	private Map<Integer,List<Drawable>> addLayer = new HashMap<Integer, List<Drawable>>();
+	private Map<Integer,List<Drawable>> removeLayer = new HashMap<Integer, List<Drawable>>();
 	
 	
 	private int[] picLayerIds = new int[0];

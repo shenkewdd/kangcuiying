@@ -1,4 +1,4 @@
-package net.keshen.base.utils;
+package net.keshen.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
