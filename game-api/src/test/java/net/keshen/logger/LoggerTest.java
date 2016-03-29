@@ -9,7 +9,7 @@ import org.junit.Test;
 public class LoggerTest {
 	
 	static{
-		System.setProperty("net.keshen.logger", "log4j");
+		System.setProperty("net.keshen.logger", "sl4j");
 	}
 	
 	@Test
@@ -20,6 +20,7 @@ public class LoggerTest {
 	
 	@Test
 	public void testSl4jLogger(){
-		
+		Logger logger = LoggerManager.getLogger(getClass());
+		logger.info("sl4jLogger test");
 	}
 }

@@ -25,10 +25,10 @@ public class LoggerManager {
 		if("log4j".equals(key)){
 			setLoggerAdapter(new Log4jLoggerAdapter());
 		}
-		else if("slfj".equals(key)){
+		else if("sl4j".equals(key)){
 			setLoggerAdapter(new Sl4jLoggerAdapter());
 		}
-		else if("jdk".equals("key")){
+		else if("jdk".equals(key)){
 			setLoggerAdapter(new JdkLoggerAdapter());
 		}
 	}
