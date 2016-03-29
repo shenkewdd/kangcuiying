@@ -17,12 +17,10 @@ public class Sl4jLoggerAdapter implements LoggerAdapter{
 	private File file;
 	
 	
-	@Override
 	public Logger getLogger(Class<?> clazz) {
 		return new Sl4jLogger(org.slf4j.LoggerFactory.getLogger(clazz));
 	}
 	
-	@Override
 	public Logger getLogger(String name) {
 		return new Sl4jLogger(org.slf4j.LoggerFactory.getLogger(name));
 	}
