@@ -1,9 +1,12 @@
 package net.keshen.logger;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
+import net.keshen.logger.jdk.JdkLoggerAdapter;
 import net.keshen.logger.log4j.Log4jLoggerAdapter;
+import net.keshen.logger.sl4j.Sl4jLoggerAdapter;
 import net.keshen.logger.support.FailsafeLogger;
 
 /**
@@ -15,12 +18,18 @@ public class LoggerManager {
 	
 	private volatile static LoggerAdapter LOGGER_ADAPTER;
 	
-	private static final Map<String,FailsafeLogger> LOGGERS = new HashMap<String, FailsafeLogger>();
+	private static final ConcurrentMap<String,FailsafeLogger> LOGGERS = new ConcurrentHashMap<String, FailsafeLogger>();
 	
 	static{
 		String key = System.getProperty("net.keshen.logger");
 		if("log4j".equals(key)){
 			setLoggerAdapter(new Log4jLoggerAdapter());
+		}
+		else if("slfj".equals(key)){
+			setLoggerAdapter(new Sl4jLoggerAdapter());
+		}
+		else if("jdk".equals("key")){
+			setLoggerAdapter(new JdkLoggerAdapter());
 		}
 	}
 	
@@ -33,8 +42,9 @@ public class LoggerManager {
 	 * @param adapter
 	 */
 	public static void setLoggerAdapter(LoggerAdapter adapter){
+		adapter.getLogger(LoggerManager.class).info("using logger:"+adapter.getClass().getName());
 		LOGGER_ADAPTER = adapter;
-		LOGGERS.put(null, (FailsafeLogger) adapter);
+		//for()
 	}
 	
 	/**
@@ -44,7 +54,12 @@ public class LoggerManager {
 	 * 
 	 */
 	public static Logger getLogger(Class<?> clazz){
-		return LOGGER_ADAPTER.getLogger(clazz);
+		FailsafeLogger logger = LOGGERS.get(clazz.getName());
+		if(logger==null){
+			LOGGERS.putIfAbsent(clazz.getName(), new FailsafeLogger(LOGGER_ADAPTER.getLogger(clazz)));
+			logger = LOGGERS.get(clazz.getName());
+		}
+		return logger;
 	}
 	
 	/**
@@ -53,7 +68,12 @@ public class LoggerManager {
 	 * @return
 	 */
 	public static Logger getLogger(String name){
-		return LOGGER_ADAPTER.getLogger(name);
+		FailsafeLogger logger = LOGGERS.get(name);
+		if(logger==null){
+			LOGGERS.putIfAbsent(name, new FailsafeLogger(LOGGER_ADAPTER.getLogger(name)));
+			logger = LOGGERS.get(name);
+		}
+		return logger;
 	}
 	
 }

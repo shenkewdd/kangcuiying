@@ -60,7 +60,7 @@ public class MainSurface extends JPanel{
 		gameThread = new MainSurfaceThread(this);
 	}
 	
-	public void action() throws Exception{
+	public void start() throws Exception{
 		gameThread.start();
 	}
 	
