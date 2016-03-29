@@ -7,6 +7,5 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>game-api</module>
-		<module>game-container</module>
 	</modules>
 </project>

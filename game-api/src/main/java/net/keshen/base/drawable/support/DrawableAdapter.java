@@ -1,14 +1,15 @@
-package net.keshen.base.adapter;
+package net.keshen.base.drawable.support;
 
 import java.io.Serializable;
 
-import net.keshen.base.Drawable;
-import net.keshen.base.basecomponet.JMatrix;
+import net.keshen.base.drawable.Drawable;
 import net.keshen.base.graphics.Canvas;
 import net.keshen.base.graphics.Matrix;
 import net.keshen.base.graphics.Paint;
+import net.keshen.base.graphics.support.JMatrix;
 
 /**
+ * 所有运动的物体都要继承该类
  * @author shenke
  * @date 2016年2月21日下午7:33:38
  * @version 1.0

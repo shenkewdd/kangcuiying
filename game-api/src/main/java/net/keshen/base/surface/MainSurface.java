@@ -1,12 +1,6 @@
 package net.keshen.base.surface;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,14 +8,10 @@ import java.util.Map;
 
 import javax.swing.JPanel;
 
-import net.keshen.base.Drawable;
-import net.keshen.base.basecomponet.GameConstant;
-import net.keshen.base.basecomponet.JMatrix;
+import net.keshen.base.drawable.Drawable;
 import net.keshen.base.graphics.Canvas;
-import net.keshen.base.graphics.Matrix;
-import net.keshen.base.graphics.Paint;
-import net.keshen.base.model.Bitmap;
-import net.keshen.base.surface.MainSurface.JCanvas.JPaint;
+import net.keshen.base.graphics.support.JCanvas;
+import net.keshen.base.graphics.support.JPaint;
 import net.keshen.logger.Logger;
 import net.keshen.logger.LoggerManager;
 
@@ -264,130 +254,5 @@ public class MainSurface extends JPanel{
 		}
 		
 	}
-	
-	/**
-	 * 画布,其实就是绘制"一大幅"图片
-	 * @author shenke
-	 *
-	 */
-	class JCanvas implements Canvas{
-		
-		private Dimension gameWindow = Toolkit.getDefaultToolkit().getScreenSize();
-		
-		private BufferedImage canvas ;
-		private JPaint paint;
-		
-		public Paint getPaint(){
-			return paint;
-		}
-		
-		/**
-		 * 获取画布
-		 * @return
-		 */
-		public BufferedImage getCanvas(){
-			return canvas;
-		}
-		
-		/**
-		 * 默认构造器,
-		 * 创建默认大小的窗口覆盖整个屏幕
-		 */
-		public JCanvas(){
-			//canvas = new BufferedImage((int)gameWindow.getWidth(), (int)gameWindow.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
-			//canvas = ImageUtils.getImage("start.jpg",ImageUtils.BG_PATH);
-			paint = new JPaint(canvas);
-		}
-		public JCanvas(int width,int height){
-			canvas = new BufferedImage(width,height,BufferedImage.TYPE_4BYTE_ABGR);
-			paint = new JPaint(canvas);
-		}
-		
-		
-		public void draw(Bitmap bitmap, Matrix matrix, Paint paint) {
-			this.paint.getGraphics().drawImage(bitmap.getImage(), ((JMatrix)matrix).getTransForm(), null);
-		}
-
-		public void draw(Bitmap bitmap, double x, double y, Paint paint) {
-			this.paint.getGraphics().drawImage(bitmap.getImage(), (int)x, (int)y, null);
-		}
-		/**
-		 * 画笔,用于绘制图形
-		 * @author shenke
-		 *
-		 */
-		class JPaint implements Paint{
-			Graphics2D graphics;
-			
-			public JPaint(BufferedImage canvas) {
-				this.graphics = (Graphics2D) canvas.getGraphics();
-			}
-			
-			public Graphics2D getGraphics(){
-				return this.graphics;
-			}
-			
-			public void setTypeface(Object obj) {
-				
-			}
-
-			public void setAntiAlias(boolean tf) {
-				if(tf){
-					RenderingHints renderQuality = graphics.getRenderingHints();
-					if(renderQuality==null){
-						renderQuality = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-						graphics.setRenderingHints(renderQuality);
-					}
-					else{
-						renderQuality.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-						graphics.setRenderingHints(renderQuality);
-					}
-					//侧重画质
-					if(GameConstant.isQuality()){
-						//TODO
-					}
-					renderQuality.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-					renderQuality.put(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
-					renderQuality.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-					renderQuality.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
-				}
-			}
-
-			public void setFilterBitmap(boolean tf) {
-				
-			}
-
-			public void setDither(boolean tf) {
-				if(tf){
-					RenderingHints renderQuality = graphics.getRenderingHints();
-					if(renderQuality==null){
-						renderQuality = new RenderingHints(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
-						graphics.setRenderingHints(renderQuality);
-					}
-					else{
-						renderQuality.put(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
-						graphics.setRenderingHints(renderQuality);
-					}
-					
-				}
-				
-			}
-
-			public void setTextSize(int size) {
-				
-			}
-
-			public void setColor(int rgb) {
-				graphics.setColor(new Color(rgb));
-			}
-
-			public void setColor(Color color) {
-				graphics.setColor(color);
-			}
-			
-		}
-		
-	}
-	
 	
 }

@@ -1,6 +1,5 @@
 package net.keshen.base.graphics;
 
-import net.keshen.base.model.Bitmap;
 
 /**
  * 画布

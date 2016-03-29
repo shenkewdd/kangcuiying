@@ -1,9 +1,9 @@
-package net.keshen.base;
+package net.keshen.base.drawable;
 
+import net.keshen.base.graphics.Bitmap;
 import net.keshen.base.graphics.Canvas;
 import net.keshen.base.graphics.Matrix;
 import net.keshen.base.graphics.Paint;
-import net.keshen.base.model.Bitmap;
 
 /**
  * @author shenke
@@ -49,5 +49,9 @@ public interface Drawable {
 	 */
 	public String getDrawableName();
 	
+	/**
+	 * 设置改组件或者运动物体的名字
+	 * @param name
+	 */
 	public void setDrawableName(String name);
 }

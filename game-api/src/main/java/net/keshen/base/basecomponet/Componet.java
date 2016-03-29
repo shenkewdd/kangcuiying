@@ -1,6 +1,7 @@
-package net.keshen.base.model;
+package net.keshen.base.basecomponet;
 
-import net.keshen.base.adapter.DrawableAdapter;
+import net.keshen.base.drawable.support.DrawableAdapter;
+import net.keshen.base.graphics.Bitmap;
 
 /**
  * 基本组件,所有的组件都要继承这个抽象类

@@ -1,4 +1,4 @@
-package net.keshen.base.model;
+package net.keshen.base.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;

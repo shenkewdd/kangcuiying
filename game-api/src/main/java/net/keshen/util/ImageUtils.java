@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.FileImageInputStream;
 
-import net.keshen.base.model.Bitmap;
+import net.keshen.base.graphics.Bitmap;
 
 /**
  * 图片工具类
