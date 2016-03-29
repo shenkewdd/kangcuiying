@@ -16,12 +16,10 @@ public class BottomTime extends Componet{
 		return getMatrix();
 	}
 
-	
 	public Bitmap getCurrentPic() {
 		return super.bg;
 	}
 
-	
 	public int getPicWidth() {
 		return getCurrentPic().getWidth();
 	}

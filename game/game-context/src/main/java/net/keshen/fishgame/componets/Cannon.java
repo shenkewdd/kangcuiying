@@ -34,12 +34,10 @@ public class Cannon extends DrawableAdapter{
 	}
 	
 	
-	
 	public Bitmap getCurrentPic() {
 		return cannoImage[currentImageId];
 	}
 
-	
 	public int getPicWidth() {
 		return getCurrentPic().getWidth();
 	}
@@ -54,12 +52,10 @@ public class Cannon extends DrawableAdapter{
 		canvas.draw(getCurrentPic(), getMatrix(), paint);
 	}
 
-	
 	public Matrix getPicMatrix() {
 		return getMatrix();
 	}
 
-	
 	public String getDrawableName() {
 		return null;
 	}

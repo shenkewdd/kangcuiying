@@ -16,17 +16,14 @@ public class BottomGold extends Componet{
 		return getMatrix();
 	}
 
-	
 	public Bitmap getCurrentPic() {
 		return super.bg;
 	}
 
-	
 	public int getPicWidth() {
 		return getCurrentPic().getWidth();
 	}
 
-	
 	public int getPicHeight() {
 		return getCurrentPic().getHeight();
 	}

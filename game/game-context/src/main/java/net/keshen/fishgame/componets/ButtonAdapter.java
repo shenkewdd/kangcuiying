@@ -25,31 +25,25 @@ public class ButtonAdapter extends Componet implements Button{
 		
 	}
 	
-	
 	public Matrix getPicMatrix() {
 		return getMatrix();
 	}
 
-	
 	public Bitmap getCurrentPic() {
 		return super.bg;
 	}
 
-	
 	public int getPicWidth() {
 		return getCurrentPic().getWidth();
 	}
 
-	
 	public int getPicHeight() {
 		return getCurrentPic().getHeight();
 	}
 
-	
 	public boolean isEnable() {
 		return enable;
 	}
-	
 	
 	public void onClick() {
 		if(onClickListener!=null){
@@ -57,7 +51,6 @@ public class ButtonAdapter extends Componet implements Button{
 		}
 	}
 
-	
 	public void addOnClickListener(OnClickListener listener) {
 		if(listener instanceof OnClickListener){
 			this.onClickListener = listener;

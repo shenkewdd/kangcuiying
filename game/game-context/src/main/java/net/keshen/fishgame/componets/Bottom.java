@@ -15,18 +15,15 @@ public class Bottom extends Componet{
 	public Matrix getPicMatrix() {
 		return getMatrix();
 	}
-
 	
 	public Bitmap getCurrentPic() {
 		return super.bg;
 	}
 
-	
 	public int getPicWidth() {
 		return getCurrentPic().getWidth();
 	}
 
-	
 	public int getPicHeight() {
 		return getCurrentPic().getHeight();
 	}
