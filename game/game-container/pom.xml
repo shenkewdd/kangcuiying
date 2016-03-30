@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>game</artifactId>
+    <groupId>game</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../game/pom.xml</relativePath>
+  </parent>
+  <groupId>game-context</groupId>
+  <artifactId>game-context</artifactId>
+  <name>game-context</name>
+  <version>${project.parent.version}</version>
+  <packaging>jar</packaging>
+  <url>https://github.com/shenkewdd</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+  
+  	<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<version>1.6.1</version>
+	</dependency>
+	<dependency>
+	<groupId>xmlpull</groupId>
+	<artifactId>xmlpull</artifactId>
+	<version>1.1.3.1</version>
+</dependency>
+	
+  	
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>game-api</groupId>
+    	<artifactId>game-api</artifactId>
+    	<version>${project.parent.version}</version>
+    	<scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>
